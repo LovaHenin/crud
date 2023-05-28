@@ -1,0 +1,9 @@
+footer{
+    background:  #55595c;
+    height:15vh;
+    display: flex;
+    color: red;
+    position: relative;
+    bottom: 10px;
+    justify-content:space-around;
+}
