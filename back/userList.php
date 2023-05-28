@@ -31,8 +31,6 @@
              exit;
               }
 
-
-
           }
 
           // mise en place de la suppression
@@ -43,21 +41,11 @@
               header('location:userList.php');
               exit;
 
-
-
           }
-
-
-
-
 
       }
 
-
-
-
         ?>
-
 
 <table class="table table-dark table-striped">
         <thead>
@@ -82,18 +70,16 @@
                 <td>
                         <a href="" class="btn btn-success">Modifier</a>
 
+                        <!-- mettre role dans $_GET[a] et id dans $GET[i]-->
                         <a href="?a=role&i=<?=  $user['id']; ?>" class="btn btn-info">  <?php     if ($user['role']=='ROLE_USER'): echo'PASSER ADMIN'; else:  echo 'PASSER<br> UTILISATEUR'  ;         endif;   ?></a>
+                        <!-- mettre del dans $_GET[a] et id dans $GET[i]-->
                         <a href="?a=del&i=<?=  $user['id']; ?>" class="btn btn-danger">Supprimer</a>
                 </td>
         </tr>
-        <?php     endforeach;           ?>
+        <?php  endforeach; ?>
 
         </tbody>
 </table>
-
-
-
-
 
 
 <?php     require_once '../inc/footer.inc.php';          ?>

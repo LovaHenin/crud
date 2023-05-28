@@ -16,7 +16,10 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
+
+                <!-- Lien vers la page index.php -->
                 <a class="navbar-brand" href="<?=BASE_PATH; ?>">CRUD</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,7 +42,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                             <div class="dropdown-menu">
+
+                            <!-- Lien vers userList-->
                                 <a class="dropdown-item" href="<?= BASE_PATH. '/back/userList.php'; ?>">Gestion utilisateur</a>
+
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
@@ -47,6 +53,7 @@
                             </div>
                         </li>
                     </ul>
+                        <!-- Lien vers login et register -->
                     <a href="<?=  BASE_PATH.'security/login.php'; ?>" class="btn btn-primary">Connexion</a>
                     <a href="<?=  BASE_PATH.'security/register.php'; ?>" class="btn btn-success">Inscription</a>
                 </div>

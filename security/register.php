@@ -3,8 +3,12 @@ require_once '../inc/header.inc.php';
 
 //debug($_POST);
 //debug($_FILES);
-if (!empty($_POST))
-    $error = false; {
+
+if (!empty($_POST)){
+
+    $error = false; 
+
+     // début de controle du formulaire
     if (empty($_POST['nickname'])) {
         $nickname = 'le pseudo est obligatire';
         $error = true;
@@ -16,11 +20,17 @@ if (!empty($_POST))
     }
 
     if (empty($_POST['email'])) {
-        $email = 'email obligatire';
-    } else {
-        $user = execute("SELECT * FROM user WHERE email=:email", array(':email' => $_POST['email']));
 
+        $email = 'email obligatire';
+
+    } else {
+
+        // verifier si le email est déjà present dans la base 
+        $user = execute("SELECT * FROM user WHERE email=:email", array(':email' => $_POST['email']));
+        
+        // si on trouve pas on continue le traitement et verifier le format de email
         if ($user->rowCount() == 0) {
+
             if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $email = 'Format invalide';
                 $error = true;
@@ -42,19 +52,21 @@ if (!empty($_POST))
     }
 
 
-
+    // pour la photo type:file c'est $_F
     if (empty($_FILES['picture_profil']['name'])) {
-        $picture = 'phot de profil obligatoire';
+        $picture = 'photo de profil obligatoire';
         $error = true;
     } else {
         $picture = '';
+        // verifier les formats
         $formats = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp'];
 
+        // inarray verifie si le ['picture_profil']['type'] est dans le tableau $formats
         if (!in_array($_FILES['picture_profil']['type'], $formats)) {
             $picture .= "les formats autorisé sont 'image/png', 'image/jpg','image/jpeg','image/gif','image/webp'<br>";
             $error = true;
         }
-
+        // verifier la taille de l'image
         if ($_FILES['picture_profil']['size'] > 2000000) {
             $picture .= " Taille maximale de autorisée de 2M";
             $error = true;
@@ -87,18 +99,17 @@ if (!empty($_POST))
 
         ),'ggg');
         
-        debug($resultat);
-        die();
+       // debug($resultat);
+       // die();
     }
 }
 
 
 ?>
 
-<?php require_once '../config/function.php';
-require_once '../inc/header.inc.php';        ?>
 
-
+<!-- $_POST =$unique_email-->
+<?=  $unique_email ?? ""; ?>
 
 <form class="mt-5 w-75 mx-auto" method="post" enctype="multipart/form-data">
     <div class="mb-3">
@@ -130,7 +141,7 @@ require_once '../inc/header.inc.php';        ?>
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
 </form>
 
 

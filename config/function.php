@@ -10,10 +10,11 @@ function debug($data)
 
 function execute(string $requete, array $data = [], $lastId = null)
 {
-   // boucle pour echa^pper les caracteres speciaux et supprimerbles espaces en debut et fin de la chaine 
+   // boucle pour echaapper les caracteres speciaux et supprimer les espaces en debut et fin de la chaine 
    foreach ($data as $marquer => $valeur) {
       // ici on réaffecte à notre tableau $data
-
+      
+// sécurité et à la prévention des attaques d'injection de code.
       $data[$marquer] = trim(htmlspecialchars($valeur));
    }
    $pdo = Db::getDb(); // connexion à la base de Db.php
