@@ -6,7 +6,7 @@
         require_once '../inc/header.inc.php';
 
         $users=execute("SELECT * FROM user")->fetchAll(PDO::FETCH_ASSOC);
-       // debug($users);
+       //debug($users);
 
       if (isset($_GET['i'])){
           // gestion du changement de rôle
@@ -71,7 +71,7 @@
                         <a href="" class="btn btn-success">Modifier</a>
 
                         <!-- mettre role dans $_GET[a] et id dans $GET[i]-->
-                        <a href="?a=role&i=<?=  $user['id']; ?>" class="btn btn-info">  <?php     if ($user['role']=='ROLE_USER'): echo'PASSER ADMIN'; else:  echo 'PASSER<br> UTILISATEUR'  ;         endif;   ?></a>
+                        <a href="?a=role&i=<?=  $user['id']; ?>" class="btn btn-info">  <?php     if ($user['role']=='ROLE_USER'): echo'PASSER ADMIN'; else:  echo 'PASSER<br> UTILISATEUR'  ;   endif;   ?></a>
                         <!-- mettre del dans $_GET[a] et id dans $GET[i]-->
                         <a href="?a=del&i=<?=  $user['id']; ?>" class="btn btn-danger">Supprimer</a>
                 </td>
