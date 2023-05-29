@@ -46,7 +46,7 @@ if (!empty($_POST)){
 
 
 
-<form class="mt-5 w-75 mx-auto" method="post"  action="index.php" enctype="multipart/form-data">
+<form class="mt-5 w-75 mx-auto" method="post" enctype="multipart/form-data">
 
     <div class="mb-3">
         <label for="annonce" class="form-label">ANNONCE*</label>

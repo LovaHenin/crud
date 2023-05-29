@@ -67,7 +67,7 @@ if (!empty($_POST)){
             $error = true;
         }
         // verifier la taille de l'image
-        if ($_FILES['picture_profil']['size'] > 2000000) {
+        if ($_FILES['picture_profil']['size'] > 20000000) {
             $picture .= " Taille maximale de autorisée de 2M";
             $error = true;
         }
