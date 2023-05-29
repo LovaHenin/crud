@@ -7,3 +7,6 @@ footer{
     bottom: 10px;
     justify-content:space-around;
 }
+.btn-mod{
+    background-color:white !important;
+}

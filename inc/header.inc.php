@@ -37,7 +37,7 @@
                             <a class="nav-link" href="<?=  BASE_PATH.'exo/annonce.php'; ?>">Ajout Annonce</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="<?=  BASE_PATH.'exo/voirAnnonce.php'; ?>">Voir Anonce</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
