@@ -95,4 +95,11 @@ require_once '../inc/header.inc.php';
 
 
 </div>
+<?php 
+// attends une variable exoSuite
+if (isset($_GET['exoSuite']) && $_GET['exoSuite'] == 'suite') { // si existe "action" dans $_GET, donc dans l'URL, c'est qu'on a cliqué sur le lien "modifier mon profil". Puis on vérifie que la valeur de $_GET['action'] est "modification", auquel cas on a bien cliqué sur le lien "modifier".
+    echo '<p><a href="hello_world.php">Aller à la suite</a></p>';
+}
+?>
+<a href="?exoSuite=suite">Cliquer pour continuer</a>
 <?php require_once '../inc/footer.inc.php'; ?>

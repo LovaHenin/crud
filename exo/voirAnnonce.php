@@ -23,7 +23,11 @@ if (isset($_GET['i'])) {
 <?php
     }
     die;
+    ?>
+    // mise en place de la suppression
 
+
+<?php
     // mise en place de la suppression
     if (isset($_GET['a']) && $_GET['a'] == 'del') {
         execute("DELETE FROM test1 WHERE id=:id", array(
@@ -59,7 +63,13 @@ if (isset($_GET['i'])) {
                     <!-- mettre voir dans $_GET[a] et id dans $GET[i]-->
                     <a href="?a=voir&i=<?= $annonce['id']; ?>&tel=<?= $annonce['tel']; ?>&annonce=<?= $annonce['annonce']; ?>" class="btn btn-info">VOIR </a>
 
-                    <a href="?a=modif&i=<?= $annonce['id']; ?>" class="btn btn-info"> MODIFIER</a>
+
+
+
+                    <form action="modification.php" method="GET">
+                        <input type="hidden" name="id" value="<?=$annonce["id"]; ?>" />
+                        <input class="btn btn-danger" type="submit" value="MODIFIER" />
+                    </form>
 
                     <!-- mettre del dans $_GET[a] et id dans $GET[i]-->
                     <a href="?a=del&i=<?= $annonce['id']; ?>" class="btn btn-danger">SUPPRIMER</a>

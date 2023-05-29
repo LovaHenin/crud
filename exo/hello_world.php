@@ -21,6 +21,6 @@
 <h2>EXERCICE 10: Récupérer les annonces d'un utilisateur si il est connecté</h2>
 <p>Si notre utilisateur est connecté, on lance une requete récupérant les annonces de cet utilisateur et on les affiche dans son tableau de gestion qui lui aussi apparait uniquement à la condition qu'il soit connecté </p>
 
-
+<a href="index.php">Revenir à l'exo</a>
 
 <?php  require_once '../inc/footer.inc.php';  ?>
