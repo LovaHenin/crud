@@ -8,21 +8,25 @@ if (isset($_GET['i'])) {
 
     // gestion du voir
     if (isset($_GET['a']) && $_GET['a'] == 'voir') {
+        $annonce=execute("SELECT * FROM test1 WHERE id=:id", array(
+            ':id'=>$_GET['i']
+    ))->fetch(PDO::FETCH_ASSOC);
 
+  //  var_dump($annonce);
 ?>
-
+       
         <div class="card">
-            <h5 class="card-header">Tel : <?php echo ($_GET['tel']); ?></h5>
+            <h5 class="card-header">Tel : <?php echo ($annonce['tel']); ?></h5>
             <div class="card-body">
                 <h5 class="card-title">Annonce</h5>
-                <p class="card-text"> <?php echo ($_GET['annonce']); ?></p>
+                <p class="card-text"> <?php echo ($annonce['annonce']); ?></p>
                 <a href="<?= BASE_PATH . 'exo/voirAnnonce.php'; ?>" class="btn btn-primary">Retour annonce</a>
 
             </div>
         </div>
 <?php
     }
-    die;
+   
     ?>
     // mise en place de la suppression
 
@@ -61,7 +65,7 @@ if (isset($_GET['i'])) {
                 <td>
 
                     <!-- mettre voir dans $_GET[a] et id dans $GET[i]-->
-                    <a href="?a=voir&i=<?= $annonce['id']; ?>&tel=<?= $annonce['tel']; ?>&annonce=<?= $annonce['annonce']; ?>" class="btn btn-info">VOIR </a>
+                    <a href="?a=voir&i=<?= $annonce['id']; ?>" class="btn btn-info">VOIR </a>
 
 
 
