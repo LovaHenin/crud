@@ -68,7 +68,7 @@
                 <td><img width="90" src="<?=  '../assets/'.$user['picture_profil']; ?>" alt="<?=  $user['nickname']; ?>"></td>
                   <td><?=  $user['role']; ?></td>
                 <td>
-                        <a href="" class="btn btn-success">Modifier</a>
+                        <a href="<?= BASE_PATH.'back/editProfil.php?a=edit&i='.$user['id']; ?>" class="btn btn-success">Modifier</a>
 
                         <!-- mettre role dans $_GET[a] et id dans $GET[i]-->
                         <a href="?a=role&i=<?=  $user['id']; ?>" class="btn btn-info">  <?php     if ($user['role']=='ROLE_USER'): echo'PASSER ADMIN'; else:  echo 'PASSER<br> UTILISATEUR'  ;   endif;   ?></a>

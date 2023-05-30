@@ -130,10 +130,12 @@ if (!empty($_POST)){
         <input name="password" type="password" class="form-control" id="exampleInputPassword1">
         <small class="text-danger"><?= $password ?? ""; ?></small>
     </div>
-    <div class="mb-3">
-        <label for="picture_profil" class="form-label">Photo de profil*</label>
-        <input name="picture_profil" type="file" class="form-control" id="picture_profil">
+      <div class="mb-3">
+        <label for="picture_profil" class="form-label">Photo de profil</label>
+        <input onchange="loadFile()" name="picture_profil" type="file" class="form-control" id="picture_profil">
         <small class="text-danger"><?= $picture ?? ""; ?></small>
+        <div class="text-center">
+        <img  id="image"  class="w-25 rounded mt-3 rounded-circle " alt=""></div>
     </div>
 
     <div class="mb-3 form-check">
@@ -148,7 +150,14 @@ if (!empty($_POST)){
 
 
 
+<script>
+    let loadFile = function()
+    {
+        let image = document.getElementById('image');
 
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 
 
 

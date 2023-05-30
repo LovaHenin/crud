@@ -61,4 +61,25 @@
         </nav>
     </header>
     <main class="container">
+
+    <?php 
+    if (isset($_SESSION['messages']) && !empty($_SESSION['messages'])):
+
+    foreach ($_SESSION['messages'] as $type => $messages): 
+        foreach ($messages as $key => $message):  // la deuxieme partie [succes] ?>
+        
+            <div class="alert alert-<?= $type;?> text-center w-50 mx-auto">
+        
+
+            <p><?=$message; ?></p></div>
+
+
+    <?php
+    unset($_SESSION['messages'][$type][$key]);// suppression messages
+endforeach; endforeach;endif;
+       
+    
+    // verification avec debug
+  //  debug($_SESSION); debug(($_SESSION['messages']));debug(($_SESSION['messages']['succes'])); die('coucou');
+    ?>
         
