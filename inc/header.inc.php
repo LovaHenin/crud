@@ -39,6 +39,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?=  BASE_PATH.'exo/voirAnnonce.php'; ?>">Voir Anonce</a>
                         </li>
+
+                        <?php if(admin()) :?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                             <div class="dropdown-menu">
@@ -52,10 +54,22 @@
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
                         </li>
+                        <?php endif; ?>
+
+
+
                     </ul>
+                    <!-- deconnexion-->
+
+
+                    <?php if(connect()){?>
+                    <a href="<?=  BASE_PATH.'?a=dis'; ?>" class="btn btn-primary">Déconnexion</a>
                         <!-- Lien vers login et register -->
+
+                       <?php } else{ ?>
                     <a href="<?=  BASE_PATH.'security/login.php'; ?>" class="btn btn-primary">Connexion</a>
                     <a href="<?=  BASE_PATH.'security/register.php'; ?>" class="btn btn-success">Inscription</a>
+                            <?php }; ?>
                 </div>
             </div>
         </nav>
@@ -64,7 +78,8 @@
 
     <?php 
     if (isset($_SESSION['messages']) && !empty($_SESSION['messages'])):
-
+ //var_dump($_SESSION['messages']);
+ //die();
     foreach ($_SESSION['messages'] as $type => $messages): 
         foreach ($messages as $key => $message):  // la deuxieme partie [succes] ?>
         
